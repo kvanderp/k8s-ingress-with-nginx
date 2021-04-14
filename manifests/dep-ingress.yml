@@ -17,6 +17,8 @@ spec:
        #prometheus.io/port: "9113"
     spec:
       serviceAccountName: nginx-ingress
+      imagePullSecrets:
+      - name: regcred
       containers:
       - image: registry.gitlab.com/kvanderp/k8s-nginx/nginx-plus-ingress
         imagePullPolicy: IfNotPresent
