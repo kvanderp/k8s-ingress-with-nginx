@@ -9,3 +9,10 @@ Next, create a k8s secret which will be used to authneticate to gitlab. Change u
 kubectl create secret generic regcred \
 >     --from-file=.dockerconfigjson=/home/k8sadmin/.docker/config.json \
 >     --type=kubernetes.io/dockerconfigjson
+
+Secret for ingress controller:
+
+kubectl create secret generic regcred \
+>     --from-file=.dockerconfigjson=/home/k8sadmin/.docker/config.json \
+>     --type=kubernetes.io/dockerconfigjson
+>      --namespace="nginx-ingress"
