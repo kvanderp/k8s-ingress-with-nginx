@@ -15,4 +15,4 @@ Secret for ingress controller:
 kubectl create secret generic regcred \
 >     --from-file=.dockerconfigjson=/home/k8sadmin/.docker/config.json \
 >     --type=kubernetes.io/dockerconfigjson
->      --namespace="nginx-ingress"
+>     --namespace="nginx-ingress"
