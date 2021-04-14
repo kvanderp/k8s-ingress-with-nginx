@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: main
+  namespace: default
+  labels:
+    app: main
+    version: v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: main
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: main
+        version: v1
+    spec:
+      containers:
+      - env:
+        - name: service_name
+          value: main
+        image: registry.gitlab.com/kvanderp/k8s-nginx/arcadia-main
+        imagePullPolicy: IfNotPresent
+        name: main
+        ports:
+        - containerPort: 80
+          protocol: TCP
+      imagePullSecrets:
+      - name: regcred
