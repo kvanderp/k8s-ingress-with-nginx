@@ -10,6 +10,10 @@ kubectl create secret generic regcred \
 >     --from-file=.dockerconfigjson=/home/k8sadmin/.docker/config.json \
 >     --type=kubernetes.io/dockerconfigjson
 
-Secret for ingress controller:
+For ingress controller, first create RBAC, Common resources, CRD's.
+https://docs.nginx.com/nginx-ingress-controller/installation/installation-with-manifests/
+
+
+Create Secret for ingress controller (in nginx-ingress namespace):
 
 kubectl create secret generic regcred --from-file=.dockerconfigjson=/home/k8sadmin/.docker/config.json --type=kubernetes.io/dockerconfigjson --namespace="nginx-ingress"
